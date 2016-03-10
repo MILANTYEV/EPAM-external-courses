@@ -1,0 +1,8 @@
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\bin\Debug\Task4.exe.config
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\bin\Debug\Task4.exe
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\bin\Debug\Task4.pdb
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\bin\Debug\Task3.exe
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\bin\Debug\Task3.pdb
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\obj\Debug\Task4.csprojResolveAssemblyReference.cache
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\obj\Debug\Task4.exe
+D:\EPAM.Net course\Milantyev_Alexander_Task02\Task4\obj\Debug\Task4.pdb
