@@ -1,6 +1,0 @@
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task3\bin\Debug\Task3.exe.config
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task3\bin\Debug\Task3.exe
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task3\bin\Debug\Task3.pdb
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task3\obj\Debug\Task3.exe
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task3\obj\Debug\Task3.pdb
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task3\obj\Debug\Task3.csprojResolveAssemblyReference.cache

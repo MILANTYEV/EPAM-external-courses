@@ -1,6 +1,0 @@
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task5\bin\Debug\Task5.exe.config
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task5\bin\Debug\Task5.exe
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task5\bin\Debug\Task5.pdb
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task5\obj\Debug\Task5.csprojResolveAssemblyReference.cache
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task5\obj\Debug\Task5.exe
-D:\EPAM.Net course\Milantyev_Alexander_Task02\Task5\obj\Debug\Task5.pdb
