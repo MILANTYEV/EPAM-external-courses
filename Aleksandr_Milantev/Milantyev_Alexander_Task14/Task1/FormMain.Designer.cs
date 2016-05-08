@@ -42,11 +42,11 @@
             this.buttonEditPrize = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPrizeToUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPrizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPrizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePrizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,7 +113,7 @@
             // 
             // buttonAddUser
             // 
-            this.buttonAddUser.Location = new System.Drawing.Point(29, 237);
+            this.buttonAddUser.Location = new System.Drawing.Point(29, 248);
             this.buttonAddUser.Name = "buttonAddUser";
             this.buttonAddUser.Size = new System.Drawing.Size(94, 34);
             this.buttonAddUser.TabIndex = 1;
@@ -123,7 +123,7 @@
             // 
             // buttonAddPrize
             // 
-            this.buttonAddPrize.Location = new System.Drawing.Point(29, 237);
+            this.buttonAddPrize.Location = new System.Drawing.Point(29, 248);
             this.buttonAddPrize.Name = "buttonAddPrize";
             this.buttonAddPrize.Size = new System.Drawing.Size(94, 34);
             this.buttonAddPrize.TabIndex = 2;
@@ -134,7 +134,7 @@
             // 
             // buttonAddPrizeToUser
             // 
-            this.buttonAddPrizeToUser.Location = new System.Drawing.Point(329, 238);
+            this.buttonAddPrizeToUser.Location = new System.Drawing.Point(329, 247);
             this.buttonAddPrizeToUser.Name = "buttonAddPrizeToUser";
             this.buttonAddPrizeToUser.Size = new System.Drawing.Size(94, 34);
             this.buttonAddPrizeToUser.TabIndex = 3;
@@ -144,7 +144,7 @@
             // 
             // buttonEditUser
             // 
-            this.buttonEditUser.Location = new System.Drawing.Point(229, 238);
+            this.buttonEditUser.Location = new System.Drawing.Point(229, 247);
             this.buttonEditUser.Name = "buttonEditUser";
             this.buttonEditUser.Size = new System.Drawing.Size(94, 35);
             this.buttonEditUser.TabIndex = 4;
@@ -154,7 +154,7 @@
             // 
             // buttonDeletePrize
             // 
-            this.buttonDeletePrize.Location = new System.Drawing.Point(129, 237);
+            this.buttonDeletePrize.Location = new System.Drawing.Point(129, 248);
             this.buttonDeletePrize.Name = "buttonDeletePrize";
             this.buttonDeletePrize.Size = new System.Drawing.Size(94, 34);
             this.buttonDeletePrize.TabIndex = 5;
@@ -165,7 +165,7 @@
             // 
             // buttonDeleteUser
             // 
-            this.buttonDeleteUser.Location = new System.Drawing.Point(129, 237);
+            this.buttonDeleteUser.Location = new System.Drawing.Point(129, 248);
             this.buttonDeleteUser.Name = "buttonDeleteUser";
             this.buttonDeleteUser.Size = new System.Drawing.Size(94, 34);
             this.buttonDeleteUser.TabIndex = 6;
@@ -175,7 +175,7 @@
             // 
             // buttonEditPrize
             // 
-            this.buttonEditPrize.Location = new System.Drawing.Point(229, 239);
+            this.buttonEditPrize.Location = new System.Drawing.Point(229, 248);
             this.buttonEditPrize.Name = "buttonEditPrize";
             this.buttonEditPrize.Size = new System.Drawing.Size(94, 34);
             this.buttonEditPrize.TabIndex = 7;
@@ -206,16 +206,6 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.fileToolStripMenuItem.Text = "User";
             // 
-            // prizeToolStripMenuItem
-            // 
-            this.prizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addPrizeToolStripMenuItem,
-            this.editPrizeToolStripMenuItem,
-            this.deletePrizeToolStripMenuItem});
-            this.prizeToolStripMenuItem.Name = "prizeToolStripMenuItem";
-            this.prizeToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.prizeToolStripMenuItem.Text = "Prize";
-            // 
             // addUserToolStripMenuItem
             // 
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
@@ -244,24 +234,34 @@
             this.addPrizeToUserToolStripMenuItem.Text = "Add prize to user";
             this.addPrizeToUserToolStripMenuItem.Click += new System.EventHandler(this.addPrizeToUserToolStripMenuItem_Click);
             // 
+            // prizeToolStripMenuItem
+            // 
+            this.prizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addPrizeToolStripMenuItem,
+            this.editPrizeToolStripMenuItem,
+            this.deletePrizeToolStripMenuItem});
+            this.prizeToolStripMenuItem.Name = "prizeToolStripMenuItem";
+            this.prizeToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.prizeToolStripMenuItem.Text = "Prize";
+            // 
             // addPrizeToolStripMenuItem
             // 
             this.addPrizeToolStripMenuItem.Name = "addPrizeToolStripMenuItem";
-            this.addPrizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addPrizeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.addPrizeToolStripMenuItem.Text = "Add prize";
             this.addPrizeToolStripMenuItem.Click += new System.EventHandler(this.addPrizeToolStripMenuItem_Click);
             // 
             // editPrizeToolStripMenuItem
             // 
             this.editPrizeToolStripMenuItem.Name = "editPrizeToolStripMenuItem";
-            this.editPrizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editPrizeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editPrizeToolStripMenuItem.Text = "Edit prize";
             this.editPrizeToolStripMenuItem.Click += new System.EventHandler(this.editPrizeToolStripMenuItem_Click);
             // 
             // deletePrizeToolStripMenuItem
             // 
             this.deletePrizeToolStripMenuItem.Name = "deletePrizeToolStripMenuItem";
-            this.deletePrizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deletePrizeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.deletePrizeToolStripMenuItem.Text = "Delete prize";
             this.deletePrizeToolStripMenuItem.Click += new System.EventHandler(this.deletePrizeToolStripMenuItem_Click);
             // 

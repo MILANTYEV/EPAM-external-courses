@@ -7,26 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BusinessLogic;
 
 namespace Task1
 {
     public partial class FormMain : Form
     {
-        //BindingList<User> _bindList = new BindingList<User>();
-
+        public UsersBL UsersBusinessLogic { get; set; }
+        public PrizesBL PrizesBusinessLogic { get; set; }
         public BindingList<User> UsersBindList { get; set; }
         public BindingList<Prize> PrizesBindList { get; set; }
         
         public FormMain()
         {
-            UsersBindList = new BindingList<User>();
-            PrizesBindList = new BindingList<Prize>();
+            UsersBusinessLogic = new UsersBL();
+            PrizesBusinessLogic = new PrizesBL();
+            UsersBindList = new BindingList<User>(UsersBusinessLogic.InitList().ToList());
+            PrizesBindList = new BindingList<Prize>(PrizesBusinessLogic.InitList().ToList());
             InitializeComponent();
             dataGridViewUsers.DataSource = UsersBindList;
             dataGridViewPrizes.DataSource = PrizesBindList;
             dataGridViewUsers.Columns["Prizes"].DisplayIndex = 5;
-            UsersBindList.Add(new User(1, "Alexander", "Milantyev", new DateTime(1996, 8, 11)));
-            PrizesBindList.Add(new Prize(1, "Nobel", "The best prize"));
         }
 
         private void AddUser()
@@ -50,6 +52,7 @@ namespace Task1
             if (dialog == DialogResult.Yes)
             {
                 UsersBindList.Remove(deletedUser);
+                UsersBusinessLogic.DeleteUser(deletedUser);
             }
         }
 
@@ -73,6 +76,10 @@ namespace Task1
 
         private void EditPrize()
         {
+            if (tabContUserPrizeSelection.SelectedIndex != 1)
+            {
+                throw new Exception("Switch tab");
+            }
             Prize editedPrize = (Prize)dataGridViewPrizes.SelectedCells[0].OwningRow.DataBoundItem;
             FormAddOrEditPrize formEditPrize = new FormAddOrEditPrize(this, editedPrize);
             formEditPrize.Show();
@@ -124,6 +131,7 @@ namespace Task1
             if (dialog == DialogResult.Yes)
             {
                 PrizesBindList.Remove(deletedPrize);
+                PrizesBusinessLogic.DeletePrize(deletedPrize, UsersBusinessLogic);
                 foreach (User user in UsersBindList)
                 {
                     user.PrizesList.Remove(deletedPrize);
@@ -187,7 +195,14 @@ namespace Task1
 
         private void buttonEditPrize_Click(object sender, EventArgs e)
         {
-            EditPrize();
+            try
+            {
+                EditPrize();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -217,7 +232,14 @@ namespace Task1
 
         private void editPrizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditPrize();
+            try
+            {
+                EditPrize();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void deletePrizeToolStripMenuItem_Click(object sender, EventArgs e)

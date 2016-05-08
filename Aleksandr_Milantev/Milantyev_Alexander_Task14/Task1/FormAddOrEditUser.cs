@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BusinessLogic;
 
 namespace Task1
 {
@@ -22,6 +24,8 @@ namespace Task1
             this._mainForm = mainForm;
             this._user = null;
             InitializeComponent();
+            birthDateTimePicker.MinDate = new DateTime(DateTime.Now.Year - MAX_AGE, 1, 1);
+            birthDateTimePicker.MaxDate = DateTime.Now;
             buttonAcceptChanges.Visible = false;
             InitializeDateComboBoxes();
             
@@ -32,6 +36,8 @@ namespace Task1
             this._mainForm = mainForm;
             this._user = editableUser;
             InitializeComponent();
+            birthDateTimePicker.MinDate = new DateTime(DateTime.Now.Year - MAX_AGE, 1, 1);
+            birthDateTimePicker.MaxDate = DateTime.Now;
             this.Text = "Edit user";
             buttonAdd.Visible = false;
             InitializeDateComboBoxes();
@@ -61,7 +67,7 @@ namespace Task1
         
         private void CreateUser()
         {
-            _user = new User(CalculateNewID(), textBoxFirstName.Text, textBoxLastName.Text,
+            _user = _mainForm.UsersBusinessLogic.CreateUser(textBoxFirstName.Text, textBoxLastName.Text,
                     new DateTime((int)cmbBoxYear.SelectedItem, (int)cmbBoxMonth.SelectedItem, (int)cmbBoxDay.SelectedItem));
         }
         
@@ -74,6 +80,7 @@ namespace Task1
                     CreateUser();
                 }
                 _mainForm.UsersBindList.Add(_user);
+                _mainForm.UsersBusinessLogic.AddUser(_user);
                 MessageBox.Show("User is added.");
                 this.Dispose();
             }
@@ -87,28 +94,18 @@ namespace Task1
             }
         }
 
-        private int CalculateNewID()
-        {
-            int lastId = 1;
-            foreach (var user in _mainForm.UsersBindList)
-            {
-                if (user.ID > lastId)
-                {
-                    lastId = user.ID;
-                }
-            }
-            return lastId + 1;
-        }
-
         private void buttonAcceptChanges_Click(object sender, EventArgs e)
         {
             try
             {
                 int index = _mainForm.UsersBindList.IndexOf(_user);
+                User oldUser = _user;
                 _mainForm.UsersBindList[index].FirstName = textBoxFirstName.Text;
                 _mainForm.UsersBindList[index].LastName = textBoxLastName.Text;
                 _mainForm.UsersBindList[index].BirthDate = new DateTime((int)cmbBoxYear.SelectedItem,
                     (int)cmbBoxMonth.SelectedItem, (int)cmbBoxDay.SelectedItem);
+                User newUser = _mainForm.UsersBindList[index];
+                _mainForm.UsersBusinessLogic.ChangeUser(oldUser, newUser);
                 MessageBox.Show("Changes accepted");
                 this.Dispose();
             }

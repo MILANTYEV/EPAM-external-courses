@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BusinessLogic;
 
 namespace Task1
 {
@@ -26,18 +28,6 @@ namespace Task1
 
         private void buttonAddPrizeToUser_Click(object sender, EventArgs e)
         {
-            /*int index = _main.UsersBindList.IndexOf(_rewardUser);
-            Prize addingPrize = (Prize)dataGridPrizes.SelectedCells[0].OwningRow.DataBoundItem;
-            if (_main.UsersBindList[index].PrizesList.Contains(addingPrize))
-            {
-                MessageBox.Show("This prize is already added");
-            }
-            else
-            {
-                _main.UsersBindList[index].AddPrize(
-                addingPrize);
-                this.Dispose();
-            }*/
             Prize addingPrize = (Prize)dataGridPrizes.SelectedCells[0].OwningRow.DataBoundItem;
             if (_rewardUser.PrizesList.Contains(addingPrize))
             {
@@ -45,7 +35,14 @@ namespace Task1
             }
             else
             {
+                User oldUser = _rewardUser;
                 _rewardUser.AddPrize(addingPrize);
+                User newUser = _rewardUser;
+                if (! _main.UsersBusinessLogic.GetUsersList().ToList().Contains(oldUser))
+                {
+                    _main.UsersBusinessLogic.AddUser(oldUser);
+                }
+                _main.UsersBusinessLogic.ChangeUser(oldUser, newUser);
                 this.Dispose();
             }
         }
