@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Data;
+using System.Configuration;
 
 namespace BusinessLogic
 {
@@ -14,7 +15,14 @@ namespace BusinessLogic
 
         public UsersBL()
         {
-            _usersDAO = new UsersDAO();
+            if (ConfigurationSettings.AppSettings["UseDB"] == "True")
+            {
+                _usersDAO = new UsersSqlDAO();
+            }
+            else
+            {
+                _usersDAO = new UsersDAO();
+            }
         }
 
         private int CalculateNewID()
@@ -71,8 +79,6 @@ namespace BusinessLogic
 
         public IEnumerable<User> InitList()
         {
-            AddUser(CreateUser("Bill", "Gates", new DateTime(1955, 10, 28)));
-            AddUser(CreateUser("Alan", "Moore", new DateTime(1953, 11, 18)));
             return GetUsersList();
         }
     }

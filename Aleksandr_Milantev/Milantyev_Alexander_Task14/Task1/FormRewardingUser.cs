@@ -38,10 +38,10 @@ namespace Task1
                 User oldUser = _rewardUser;
                 _rewardUser.AddPrize(addingPrize);
                 User newUser = _rewardUser;
-                if (! _main.UsersBusinessLogic.GetUsersList().ToList().Contains(oldUser))
-                {
-                    _main.UsersBusinessLogic.AddUser(oldUser);
-                }
+                //if (! _main.UsersBusinessLogic.GetUsersList().ToList().Contains(oldUser))
+                //{
+                //    _main.UsersBusinessLogic.AddUser(oldUser);
+                //}
                 _main.UsersBusinessLogic.ChangeUser(oldUser, newUser);
                 this.Dispose();
             }

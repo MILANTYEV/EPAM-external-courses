@@ -46,7 +46,6 @@
             this.textBoxPrizes = new System.Windows.Forms.TextBox();
             this.buttonAddPrize = new System.Windows.Forms.Button();
             this.timerRefreshPrizes = new System.Windows.Forms.Timer(this.components);
-            this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelFirstName
@@ -196,19 +195,11 @@
             // 
             this.timerRefreshPrizes.Tick += new System.EventHandler(this.refreshTimer_Tick);
             // 
-            // birthDateTimePicker
-            // 
-            this.birthDateTimePicker.Location = new System.Drawing.Point(242, 195);
-            this.birthDateTimePicker.Name = "birthDateTimePicker";
-            this.birthDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.birthDateTimePicker.TabIndex = 16;
-            // 
             // FormAddOrEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 334);
-            this.Controls.Add(this.birthDateTimePicker);
             this.Controls.Add(this.buttonAddPrize);
             this.Controls.Add(this.textBoxPrizes);
             this.Controls.Add(this.labelPrizes);
@@ -251,6 +242,5 @@
         private System.Windows.Forms.TextBox textBoxPrizes;
         private System.Windows.Forms.Button buttonAddPrize;
         private System.Windows.Forms.Timer timerRefreshPrizes;
-        private System.Windows.Forms.DateTimePicker birthDateTimePicker;
     }
 }

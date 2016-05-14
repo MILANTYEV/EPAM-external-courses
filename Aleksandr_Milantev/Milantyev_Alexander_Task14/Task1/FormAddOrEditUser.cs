@@ -24,8 +24,8 @@ namespace Task1
             this._mainForm = mainForm;
             this._user = null;
             InitializeComponent();
-            birthDateTimePicker.MinDate = new DateTime(DateTime.Now.Year - MAX_AGE, 1, 1);
-            birthDateTimePicker.MaxDate = DateTime.Now;
+            //birthDateTimePicker.MinDate = new DateTime(DateTime.Now.Year - MAX_AGE, 1, 1);
+            //birthDateTimePicker.MaxDate = DateTime.Now;
             buttonAcceptChanges.Visible = false;
             InitializeDateComboBoxes();
             
@@ -36,8 +36,8 @@ namespace Task1
             this._mainForm = mainForm;
             this._user = editableUser;
             InitializeComponent();
-            birthDateTimePicker.MinDate = new DateTime(DateTime.Now.Year - MAX_AGE, 1, 1);
-            birthDateTimePicker.MaxDate = DateTime.Now;
+            //birthDateTimePicker.MinDate = new DateTime(DateTime.Now.Year - MAX_AGE, 1, 1);
+            //birthDateTimePicker.MaxDate = DateTime.Now;
             this.Text = "Edit user";
             buttonAdd.Visible = false;
             InitializeDateComboBoxes();
@@ -67,8 +67,11 @@ namespace Task1
         
         private void CreateUser()
         {
-            _user = _mainForm.UsersBusinessLogic.CreateUser(textBoxFirstName.Text, textBoxLastName.Text,
-                    new DateTime((int)cmbBoxYear.SelectedItem, (int)cmbBoxMonth.SelectedItem, (int)cmbBoxDay.SelectedItem));
+            if (_user == null)
+            {
+                _user = _mainForm.UsersBusinessLogic.CreateUser(textBoxFirstName.Text, textBoxLastName.Text,
+                        new DateTime((int)cmbBoxYear.SelectedItem, (int)cmbBoxMonth.SelectedItem, (int)cmbBoxDay.SelectedItem));
+            }
         }
         
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -91,6 +94,11 @@ namespace Task1
             catch (ArgumentException)
             {
                 MessageBox.Show("Not all name-fields are field");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("User is added");
+                this.Dispose();
             }
         }
 

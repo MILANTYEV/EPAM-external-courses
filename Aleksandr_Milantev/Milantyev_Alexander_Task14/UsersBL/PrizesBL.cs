@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Data;
+using System.Configuration;
 
 namespace BusinessLogic
 {
@@ -14,7 +15,14 @@ namespace BusinessLogic
 
         public PrizesBL()
         {
-            _prizesDAO = new PrizesDAO();
+            if (ConfigurationSettings.AppSettings["UseDB"] == "True")
+            {
+                _prizesDAO = new PrizesSqlDAO();
+            }
+            else
+            {
+                _prizesDAO = new PrizesDAO();
+            }
         }
 
         private int CalculateNewID()
@@ -75,8 +83,6 @@ namespace BusinessLogic
 
         public IEnumerable<Prize> InitList()
         {
-            AddPrize(CreatePrize("Nobel prize", "The best award"));
-            AddPrize(CreatePrize("Diploma"));
             return GetPrizesList();
         }
     }
